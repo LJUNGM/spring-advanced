@@ -61,6 +61,7 @@ public class JwtFilter implements Filter {
             httpRequest.setAttribute("email", claims.get("email"));
             httpRequest.setAttribute("userRole", claims.get("userRole"));
 
+            /*
             if (url.startsWith("/admin")) {
                 // 관리자 권한이 없는 경우 403을 반환합니다.
                 if (!UserRole.ADMIN.equals(userRole)) {
@@ -70,6 +71,7 @@ public class JwtFilter implements Filter {
                 chain.doFilter(request, response);
                 return;
             }
+            */
 
             chain.doFilter(request, response);
         } catch (SecurityException | MalformedJwtException e) {
